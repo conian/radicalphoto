@@ -2,47 +2,94 @@
 <html>
 <head>
 	<title>RadicalPhoto Contact</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">	
+	<!-- boostrapcdn error - ok with that -->
+	
 	<link href='http://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet' type='text/css'>
 	<link type="text/css" rel="stylesheet" href="css/radicalphoto.css">
+
+    <style>
+        .class {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
+    <div id="header">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a>
+        </ul>
 
-<div id="header">
-	<ul>
-		<li><a href="index.html">Home</a></li>
-		<li><a href="gallery.html">Gallery</a></li>
-		<li><a href="about.html">About</a></li>
-		<li><a href="contact.html">Contact</a>
-	</ul>
+        <h1>RadicalPhoto</h1>
+    </div>
 
-	<h1>RadicalPhoto</h1>
+    <div id="main_wrapper">
+        <div id="content">
+            <h2>Contact RadicalPhoto</h2>
 
-</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
-<div id="main_wrapper">
+            <form action="http://derekallard.com/echo.php" id="myform" method="post">
+                <p class="errors">All fields are required.</p>
+                <p><label>Name: <input type="text" size="25" name="name" id="username"><span id="name_err" class="errors">&nbsp;All fields are required.</span></label></p>
+                <p><label>Email: <input type="text" size="25" name="email" id="email"><span id="email_err" class="errors">&nbsp;All fields are required.</span></label></p>
+                <p><label>Message:<br> <textarea cols="50" rows="5" name="message" id="my_message"></textarea></label><span id="msg_err" class="errors"><strong>&nbsp;All fields are required.</strong></span></p>
+                <p><input type="submit" value="Contact Us"></p>
+            </form>
+        </div>
 
-	<div id="content">
-	<h2>Contact RadicalPhoto</h2>
+        <div id="footer">
+            <p>All content &copy; Copyright</p>
+        </div>
+    </div><!-- main_wrapper ends -->
+    
+    <script>
+        
+        var my_form = document.getElementById("myform");
+        var the_name = document.getElementById("username");
+        var the_email = document.getElementById("email");
+        var the_message = document.getElementById("my_message");
+        
+        var name_err_text = document.getElementById("name_err");
+        var email_err_text = document.getElementById("email_err");
+        var msg_err_text = document.getElementById("msg_err");
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-	<form action="http://derekallard.com/echo.php" method="post" id="myform">
-
-		<p class="errors">All fields are required.</p>
-
-		<p><label>Name: <input type="text" size="25" name="name" id="username"></label></p>
-		<p><label>Email: <input type="text" size="25" name="email" id="email"></label></p>
-		<p><label>Message:<br> <textarea cols="50" rows="5" name="message" id="my_message"></textarea></label></p>
-		<p><input type="submit" value="Contact Us"></p>
-	</form>
-
-	</div>
-
-	<div id="footer">
-	<p>All content &copy; Copyright</p>
-	</div>
-
-</div>
-
+        my_form.onsubmit = function () {
+            
+            var errors = 0;
+            var user_name = the_name.value;
+            var user_email = the_email.value;
+            var user_message = the_message.value; 
+            
+            if (user_name == "") {
+                name_err_text.style.display = "inline-block";
+                errors++;
+            } else {
+                name_err_text.style.display = "none";
+            }
+            
+            if (user_email == "") {  
+                email_err_text.style.display = "inline-block";
+                errors++;
+            } else {
+                email_err_text.style.display = "none";
+            }
+            
+            if (user_message == "") { 
+                msg_err_text.style.display = "inline-block";
+                errors++;
+            } else {
+                msg_err_text.style.display = "none";
+            }
+            
+            if (errors > 0) {
+               return false; 
+            }
+        }    
+    </script>   
 </body>
 </html>

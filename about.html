@@ -2,49 +2,84 @@
 <html>
 <head>
 	<title>RadicalPhoto About</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- boostrapcdn error - ok with that -->
+	
 	<link href='http://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet'>
 	<link type="text/css" rel="stylesheet" href="css/radicalphoto.css">
 </head>
+
 <body>
+    <div id="header">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a>
+        </ul>
 
-<div id="header">
-	<ul>
-		<li><a href="index.html">Home</a></li>
-		<li><a href="gallery.html">Gallery</a></li>
-		<li><a href="about.html">About</a></li>
-		<li><a href="contact.html">Contact</a>
-	</ul>
+        <h1>RadicalPhoto</h1>
+    </div>
 
-	<h1>RadicalPhoto</h1>
+    <div id="main_wrapper">
+        <div id="content">
+            <h2>About RadicalPhoto</h2>
 
-</div>
+            <p>Today is <span id="recent_date">July 17, 2015</span>. Stay tuned, we have exciting news about our company coming in a few more weeks!</p>
 
-<div id="main_wrapper">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
-	<div id="content">
-	<h2>About RadicalPhoto</h2>
+            <h3>Our Team</h3>
 
-	<p>Today is <span>July 17, 2015</span>. Stay tuned, we have exciting news about our company coming in a few more weeks!</p>
+            <p id="bios">
+                <a id="sheila" href="sheila.html">Sheila</a> (President) | 
+                <a id="frank" href="frank.html">Frank</a> (Vice President) | 
+                <a id="joanne" href="joanne.html">Joanne</a> (Senior Photographer)
+            </p> 
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <div>
+                <img id="bio" src="images/bio1.jpg" width="200" height="133" alt="bio_img">
+            </div>
 
-	<h3>Our Team</h3>
+        </div>
 
-	<p id="bios">
-		<a href="sheila.html">Sheila</a> (President) | 
-		<a href="frank.html">Frank</a> (Vice President) | 
-		<a href="joanne.html">Joanne</a> (Senior Photographer)
-	</p> 
-
-	<div id="bio"></div>
-
-	</div>
-
-	<div id="footer">
-	<p>All content &copy; Copyright</p>
-	</div>
-
-</div>
-
+        <div id="footer">
+            <p>All content &copy; Copyright</p>
+        </div>
+    </div>
+    
+    <script>
+        
+        var mydate = new Date();
+        var myday = mydate.getDate();
+        var mymonth = mydate.getMonth();
+        var myyear = mydate.getFullYear();  
+        var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    
+        var recent_date = document.getElementById("recent_date");
+        recent_date.innerHTML = month[mymonth]+" "+myday+", "+myyear;
+        
+        var member_img = document.getElementById("bio");
+        var sheila = document.getElementById("sheila");
+        var frank = document.getElementById("frank");
+        var joanne = document.getElementById("joanne");
+        
+        member_img.style.display = "none";
+        
+        sheila.onmouseover = function () {
+            member_img.style.display = "block";
+            member_img.src = "images/bio1.jpg";
+        }
+        
+        frank.onmouseover = function () {
+            member_img.style.display = "block";
+            member_img.src = "images/bio3.jpg";
+        }
+        
+        joanne.onmouseover = function () {
+            member_img.style.display = "block";
+            member_img.src = "images/bio2.jpg";
+        }         
+    </script>
 </body>
 </html>
